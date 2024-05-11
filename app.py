@@ -432,8 +432,8 @@ def getFaturamento(id_emp, dt_ini, dt_fim):
 
         #Forma compacta de escrever a query.
         sql  = "SELECT	A.id_hist, B.ds_nome, C.dt_data, C.hr_ini, C.hr_fim, D.ds_nome, E.ds_desc, E.mn_valor, F.ds_status "
-        sql += "FROM	pi1_sisemp.tb_historico A, pi1_sisemp.tb_emp B, pi1_sisemp.tb_agenda C, "
-        sql +=         "pi1_sisemp.tb_cli D, pi1_sisemp.tb_catserv E, pi1_sisemp.tb_status F "
+        sql += "FROM	tb_historico A, tb_emp B, tb_agenda C, "
+        sql +=         "tb_cli D, tb_catserv E, tb_status F "
         sql += "WHERE	A.id_emp = B.id_emp AND A.id_agenda = C.id_agenda AND C.id_cli = D.id_cli "
         sql +=     "AND A.id_ser = E.id_ser AND A.id_status = F.id_status AND A.id_emp = %s "
         sql += "AND C.dt_data >= %s AND C.dt_data <= %s ORDER BY A.id_hist "
@@ -444,8 +444,8 @@ def getFaturamento(id_emp, dt_ini, dt_fim):
     else:
         
         sql  = 'SELECT A.id_hist, B.ds_nome, C.dt_data, C.hr_ini, C.hr_fim, D.ds_nome, E.ds_desc, E.mn_valor, F.ds_status '
-        sql += 'FROM pi1_sisemp.tb_historico A, pi1_sisemp.tb_emp B, pi1_sisemp.tb_agenda C, '
-        sql += 'pi1_sisemp.tb_cli D, pi1_sisemp.tb_catserv E, pi1_sisemp.tb_status F '
+        sql += 'FROM tb_historico A, tb_emp B, tb_agenda C, '
+        sql += 'tb_cli D, tb_catserv E, tb_status F '
         sql += 'WHERE A.id_emp = B.id_emp AND A.id_agenda = C.id_agenda AND C.id_cli = D.id_cli '
         sql += 'AND A.id_ser = E.id_ser AND A.id_status = F.id_status AND A.id_emp = %(id_emp)s ORDER BY A.id_hist '
         sql += 'LIMIT 370 '
